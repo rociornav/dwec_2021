@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+Rocío del Real 01/10/20 U2 T5.2 EJERCICIOS VARIOS
+Ejercicio 2:
+Recorre mediante for-in una variable llamada texto que representa a la cadena “ejemplo”.
+¿Qué resultados obtenemos al ejecutar?¿Qué conclusión podemos extraer?
+
+https://www.w3schools.com/jsref/jsref_forin.asp
+
+*****TEORIA*****
+for...in está construido para iterar propiedades de objeto, no se recomienda su uso con arreglos y opciones como 
+Array.prototype.forEach() y existe for...of.
+
+USO:  itera sobre las propiedades de un objeto en un orden arbitrario.
+
+for/in - loops through the properties of an object
+
+*****NOTA*****
+No entiendo qué resultado por consola debe tener este ejercicio, chema dice que recorramos la variable llamada texto con valor 'ejemplo'
+y comentemos su utilidad.
+
+****SOLUCION*****
+Opcion comentada: Sale por cada posicion de cada letra de la palabra ejemplo, la palabra undefined. Lo que carece de sentido.
+No sé si esta es la solución que debería darme el ejercicio.
+
+Opcion sin comentar: sale por cada alert una letra del texto.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T5.2 EJERCICIOS VARIOS</title>
+    <script type="text/javascript">
+    var texto="ejemplo";
+    var resultado=""; //declaramos una variable tipo string vacia.
+    for (let i in texto) {
+
+        //resultado +=texto.charAt[i]+" "; //acumulo cada letra en la variable vacia
+        alert(texto[i]);
+    }
+    //alert("Solución: "+resultado);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

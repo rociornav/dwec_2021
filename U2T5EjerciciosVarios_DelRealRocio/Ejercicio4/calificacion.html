@@ -1,0 +1,84 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+	Rocío del Real 02/10/20 U2 T5.4 EJERCICIOS VARIOS
+
+	Ejercicio 4:
+Ejecutar el código del archivo calificación.html y evaluar los valores obtenidos. 
+
+¿Qué calificación obtenemos cuando la nota introducida es 5? Y ¿Cuándo es 9? ¿y 2?. 
+Usar el archivo calificación.html subido al AulaVirtual.
+
+
+****SOLUCION****
+¿Qué calificación obtenemos cuando la nota introducida es 5? 
+		*Obtenemos 'aprobado'. Ya que se aplica la orden posterior, es decir, del case 6.
+
+¿Y cuándo es 9?
+		*Sobresaliente, ya que nota>8 significa mayor de 8 sin entrar el 8.
+
+¿y 2?
+		*'Valor erroneo', ya que no hay una opción específica para los suspensos, ni tienen puestas
+		restricciones para los casos límites como menor que cero, o mayor de 10.
+-->
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>Actividad 4 de Ejercicios varios.</title>
+	<script type="text/javascript">
+		//Corregir el código porque no compila.
+		//var nota=document.getElementById("txtdato").value;
+		function verCalificacion(nota) {
+			nota = parseInt(nota);
+			switch (nota) {
+				case 0:
+					alert('Suspenso');
+					break;
+				case 1:
+					alert('Suspenso');
+					break;
+				case 2:
+					alert('Suspenso');
+					break;
+				case 3:
+					alert('Suspenso');
+					break;
+				case 4:
+					alert('Suspenso');
+					break;
+				case 5:
+					alert('Aprobado');
+					break;
+				case 6:
+					alert('Bien');
+					break;
+				case 7:
+					alert('Notable');
+					break;
+				case 8:
+					alert('Notable');
+					break;
+				case 9:
+					alert('Sobresaliente');
+					break;
+				case 10:
+					alert('Sobresaliente');
+					break;
+				default:
+					alert('Valor erroneo');
+					break;
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<span> Ver resultado</span>
+	<br />
+	<input type="text" id='txtnota' value="5" />
+	<br />
+	<input type="button" onclick="verCalificacion(document.getElementById('txtnota').value);" value='Pulsar'>
+</body>
+
+</html>

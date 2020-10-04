@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--
+Rocío del Real 01/10/20 U2 T5.3 EJERCICIOS VARIOS
+Ejercicio 3:
+Crear un bucle desde 1 hasta 500 donde se muestre en consola únicamente los números múltiplos de 3 y 
+el  número de números que no son primos. Nota: Aplicar modulo (%)
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T5.3 EJERCICIOS VARIOS</title>
+    <script type="text/javascript">
+
+    //Creo el bucle de 1 a 500
+    var noPrimos=1; //lo inicio a 1 porque añade desde el principio que 1 no es multiplo, ya que en mi bucle no entra.
+        document.write("Secuencia de números primos: ")
+        for(i=1; i<=500;i++){
+            //Multiplos de 3: son todos los números que al dividirlo entre 3 el resultado del resto es igual a 0. 1 NO es multiplo ojo
+            if(i!=1){
+                if(i%3==0){
+                    document.write(i+"\; ");
+                }else{
+                    noPrimos+=1;
+                }
+            }
+        }
+        document.write("<br><br>Cantidad de no primos: Hay "+noPrimos+" números no primos.");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

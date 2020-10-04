@@ -1,0 +1,35 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--Rocío del Real 01/10/20 U2 T5.1 EJERCICIOS VARIOS
+Ejercicio 1:
+Muestre a través de la consola si el número introducido en una caja de texto es par o impar. 
+Usar el archivo parImpar.html (este archivo está incompleto).
+
+Complicación: recoger el dato que ingresa el usuario en la caja de texto en html y pasarlo a valor numérico en la función.
+-->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>Numero par o impar</title>
+	<script type="text/javascript">
+		//Investigación: https://www.lawebdelprogramador.com/codigo/JavaScript/2460-Obtener-el-valor-de-un-input-typetext-de-varias-maneras.html
+		function verParImpar() {
+			var numUsuario=document.getElementById("txtdato").value; 
+			if(numUsuario%2==0){//si es par
+				return alert("Es par.");
+			}else{
+				return alert("Es impar.");
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<span> Ver resultado</span>
+	<br />
+	<input type="text" id='txtdato' />
+	<br />
+	<input type="button" onclick="verParImpar();" value='Pulsar'>
+</body>
+
+</html>
