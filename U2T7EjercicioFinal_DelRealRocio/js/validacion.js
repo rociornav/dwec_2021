@@ -22,18 +22,21 @@ No es necesario corregir los errores.
 //Complicación: recoger el dato que ingresa el usuario en la caja de texto en html y pasarlo a valor numérico en la función.
 //Atributos:
 var numDni=document.getElementById("dnitxt").value; //debo rescatar el numero DNI que ingrese el usuario en la caja
-var letraUsuario=document.getElementById("letra").value;
+
 //Funcion para calcular la letra del dni
 function getLetraDNI(numDni) {
-    
+    var letraUsuario=document.getElementById("letra").value;
     var cadenaLetras="TRWAGMYFPDXBNJZSQVHLCKE";
+    //cadenaLetras.toLowerCase; no sirve la unica solucion es cambiar las id de mis letras de html a mayusculas
     var posicion= numDni % 23; //ese numDNI%23=letraDNI
     var letra = cadenaLetras.charAt(posicion);
     //return alert("Su letra es "+letra);
-    if (letra ==letraUsuario) {
-        alert("Es válido");
+    debugger
+    if (letra==letraUsuario) {
+        return alert("Es válido");
     }else{
-        alert("ERROR, esa letra no es correcta. La letra correcta es "+letra);
+        return alert("ERROR, esa letra no es correcta. La letra correcta es "+letra);
+       
     }
 }
 
