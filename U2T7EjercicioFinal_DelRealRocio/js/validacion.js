@@ -31,7 +31,7 @@ function getLetraDNI(numDni) {
     var posicion= numDni % 23; //ese numDNI%23=letraDNI
     var letra = cadenaLetras.charAt(posicion);
     //return alert("Su letra es "+letra);
-    debugger
+   
     if (letra==letraUsuario) {
         return alert("Es válido");
     }else{
