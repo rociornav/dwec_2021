@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--Rocío del Real Navarro 16/10/20 U3 Tarea 1 Ejercicio 2.-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 3. Tarea 1 - Date: Ejercicio 2.</title>
+    <style type="text/css">
+    /*css interno*/
+    
+    label {
+    display:block; 
+    font: 1rem 'Fira Sans', sans-serif;
+    }
+
+    #mark1{
+        color: rgb(255, 0, 0);
+    }
+    
+    input,
+    label {
+        margin: .4rem 0;
+    }
+
+    input:invalid+span:after {
+        content: '✖';
+        padding-left: 5px;
+    }
+
+    input:valid+span:after {
+        content: '✓';
+        padding-left: 5px;
+    }
+    
+   
+    </style>
+</head>
+<body>
+    <form>
+        <div>
+          <label for="party">Pon su fecha de cumpleaños de este año:</label><div id="mark1">(Obligatorio del 2020)</div>
+          <input type="date" id="party" name="party" min="2020-01-01" max="2020-12-31" required>
+          <span class="validity"></span>
+        </div>
+        <div>
+          <input type="submit" value="Enviar fecha">
+        </div>
+      </form>
+
+
+
+    <script type="text/javascript" src="js/u3t1ej2.js"></script>
+</body>
+</html>
