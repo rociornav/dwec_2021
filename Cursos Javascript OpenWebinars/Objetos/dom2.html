@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertar y eliminar nodos</title>
+</head>
+<body>
+    <!--ELIMINAR NODOS-->
+    <ul id="todo_list"> <!--debe aparecer el array tareas dentro de estas etiquetas ul como etiquetas tipo li-->
+
+    </ul>
+    <script type="text/javascript">
+
+        let tareas=[
+            "Hacer la colada",
+            "Estudiar",
+            "Cocinar",
+        ];
+
+        let todoList=document.querySelector('#todo_list');
+        //console.log(todoList)
+
+        for(let i=0; i<tareas.length;i++){
+            let tarea=tareas[i];
+
+
+            //crear un nodo dentro de otro 
+
+            let li=document.createElement('li');
+            //ponemos el contenido
+            li.textContent=tarea;
+            //nuevo: le pongo una id a cada nodo que inserté:
+            li.id='elemento_'+i;
+            //agregamos un hijo
+            todoList.appendChild(li);
+        }
+
+
+        
+        //si quieres que se elimine después de 2 segundos:
+        setTimeout(function(){
+            //nuevo: borramos el elemento con id concreto.
+            let elementoEliminar=document.getElementById('elemento_2');
+            todoList.removeChild(elementoEliminar);
+
+        },2000);
+
+    </script>
+</body>
+</html>
