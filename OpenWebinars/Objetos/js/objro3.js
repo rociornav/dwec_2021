@@ -1,8 +1,6 @@
 function procesamiento(){
     const cad=document.getElementById("cadena")?.value;
     
-
-
     //comprobar si la cad existe o no esta vacia
     if(cad && cad!=''){
         let trozos = cad.split("|"); 
@@ -62,8 +60,8 @@ function procesamiento(){
             alert('Cantidad no válida: debe contener sólo números enteros. Sin espacios.')
         }
 
-        //Validacion de la zona: debe ser un cz unicamente
-        const expresion3=/cz/g;
+        //Validacion de la zona: debe ser un HU o CA o SE  unicamente
+        const expresion3=/(HU|CA|SE)/g; //   /cz/g
         if(zona[1].match(expresion3)&&zona[1].length==2){
             document.getElementById('zona').innerHTML+= "<li>Zona: "+zona[1]+"</li>"; //pinto en html la cantidad
         }else{

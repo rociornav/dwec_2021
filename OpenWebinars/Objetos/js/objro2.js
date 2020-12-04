@@ -32,7 +32,7 @@ function getStats(cad){
             letra=null;
         });
     }else{
-        //aparece cero veces
+        //aparece cero veces porque no hay cadena XD
         abecedario.forEach(e => veces.push({letra: (Array.isArray(e) ? e[0] : e), contador: 0}));
     }
     return veces;

@@ -6,7 +6,7 @@ Un arquitecto de dudosa entereza moral, pretende vender parcelas comisionando a 
 incautos. En la base de datos del arquitecto, las parcelas y sus compradores están codificadas
 de la siguiente manera:
 
-municipio:cod_parcela@nombre|apellido1|apellido2  Ej: carmona10:aBcd1234@rocio|delReal|Navarro
+municipio:cod_parcela@nombre|apellido1|apellido2  Ej: carmona10:aBcd1234@rocío|del Real|Navarro    camas:abdv1234@chema|garcia|durban
 
 Donde municipio es el municipio al que pertenece la parcela, cod_parcela es el código catastral 
 de la parcela compuesto de 4 letras y 4 números (en ese orden), nombre es el nombre del comprador, 
@@ -22,12 +22,12 @@ function formatoParcelas(){
     const cad=document.getElementById("cadena").value;
 
     //comprobar si la cad existe o no esta vacia
-    if(cad && cad!=''){
+    if(cad){
         //Busco el municipio: vale cualquier caracter
         let trozos1 = cad.split(":");
         //Validación municipio
        // const expresion1=/^[A-Za-z]+$/; ///^[A-Za-z]+$/ solo letras
-        if(trozos1[0]){
+        if(trozos1[0]){ //admite cualquier valor
             //pintamos el municipio en html si cumple la condicion
             document.getElementById('municipio').innerHTML+= "<li>Municipio: "+trozos1[0]+"</li>"; 
         }else{
@@ -39,7 +39,7 @@ function formatoParcelas(){
         const cod_parcela = trozos1[1].split("@");
         const expresionCod=/[A-z]{4}\d{4}/g; //asi si funciona
         if(cod_parcela[0].length==8 &&cod_parcela[0].match(expresionCod)){
-            document.getElementById('cod_parcela').innerHTML+= "<li>Código parcela: "+cod_parcela[0]+"</li>";
+            document.getElementById('cod_parcela').innerHTML+= "<li>Código parcela: "+cod_parcela[0]+"-->Letras: "+cod_parcela[0].substring(0,4)+"    Números: "+cod_parcela[0].substring(4)+"</li>";
         }else{
             //mensaje de error
             alert("Error en cod_parcela: no puede estar vacío y debe cumplir el orden de 4letras y 4 numeros. Ej: aBcr1238");
@@ -47,30 +47,25 @@ function formatoParcelas(){
 
         //Validar nombre del comprador: trabajo con cod_parcela[1]-->nombre|apellido1|apellido2 para sacar el cod_parcela(4letrasy4numeros)
         const name = cod_parcela[1].split("|"); //el nombre está en name[0]
-        const expresionName=/^[A-Za-z]+$/;//solo letras
-        if(name[0].match(expresionName)){
+        //const expresionName=/^[A-Za-z]+$/;//solo letras
+        if(name[0]){//admite cualquier valor
             document.getElementById('nombre').innerHTML+= "<li>Nombre del comprador: "+name[0]+"</li>";
         }else{
             //error
-            alert("Error en nombre del comprador: no puede estar vacío y debe contener sólo letras");
+            alert("Error en nombre del comprador: no puede estar vacío y debe contener sólo letras, sin tildes");
 
         }
 
         //Validar apellidos: trabajo con name[1]=apellido1 y name[2]=apellido2, deben ser solo letras y debemos juntarlos
-        if(name[1].match(expresionName)&&name[2].match(expresionName)){
+        if(name[1]&&name[2]){//admite cualquier valor
             document.getElementById('apellidos').innerHTML+= "<li>Apellidos: "+name[1]+name[2]+"</li>";
         }else{
             //error
-            alert("Error en apellidos: no puede estar vacío y debe contener sólo letras");
+            alert("Error en apellidos: no puede estar vacío.");
         }
 
     }else{
         //cadena vacía o no existe.
         alert("Error. No escribiste nada, escribe algo en el formato municipio:cod_parcela@nombre|apellido1|apellido2 porfavor.")
     }
-
-
-   
-
-
 }

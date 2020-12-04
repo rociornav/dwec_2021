@@ -11,19 +11,18 @@ los espacios posibles (internos y externos).
 
 Por ejemplo:
 “Si quiere vivir, venga conmigo”
-“s-I-q-U-I-e-r-e-v-I-v-I-R-,-V-e-N-G-a-c-O-N-m-i-G-O”
-
-
+“S-i-Q-u-I-e-R-e-V-i-V-i-R-,-V-e-N-g-A-c-O-n-M-i-G-o”
 */
 
 function aleatorioCad() {
   const cad = document.getElementById("frase").value;
 
   //Me aseguro de que exista cad o que no esté vacía
-  if (cad && cad != "") {
+  if (cad) {
+
     let cadSin = "";
     //Recorro la frase y Primero elimino los espacios
-    for (let i = 0; i < cad.length; i++) {
+    for (let i = 0; i < cad.length; i++) { //let cadSin=cad.replace(/\s/g,''); -->forma más rápida de eliminar espacios
       let caracter = cad.charAt(i);
       if (caracter == " ") {
         //si es un espacio lo eliminamos
@@ -32,28 +31,34 @@ function aleatorioCad() {
         cadSin += caracter;
       }
     }
+    
 
     //console.log(cadSin);//prueba de que los espacios estan eliminados
-    const cadSinMayus = cadSin.toLowerCase();
-    console.log(cadSinMayus); //prueba de que estan en mayusculas
+   const cadSinMayus = cadSin.toLowerCase();
+    // console.log(cadSinMayus); //prueba de que estan en mayusculas
 
     //Alterno una mayuscula y una minuscula
     let res = "";
     for (let i = 0; i < cadSinMayus.length; i++) {
       caracter = cadSinMayus.charAt(i).toUpperCase(); //las que deben ir en minusculas
       if (i % 2 != 0) {
-        //las posiciones impares
-        res += cadSinMayus.charAt(i);
+        //las posiciones impares y alterno el guión
+        res += cadSinMayus.charAt(i)+"-";
       } else {
-        res += caracter;
+        res += caracter+"-";
       }
     }
    //console.log(res)
 
-    //alterno el guión
+    //eliminamos el ultimo guion que sobra al final de la cadena res
    let resFinal = "";
     for (let i = 0; i < res.length; i++) {
-    resFinal += res.charAt(i) + "-";
+    
+      if(res.lastIndexOf("-")==i){
+        resFinal +="";
+      }else{
+        resFinal +=res.charAt(i)+"";
+      }
     }
    //console.log(resFinal);
    //imprimo el resultado

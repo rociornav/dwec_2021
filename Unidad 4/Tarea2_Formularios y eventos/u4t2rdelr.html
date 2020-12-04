@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- id para js, class para css -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory game</title>
+    <script type="text/javascript" src="u4t2rdelr.js"></script>
+    <style type="text/css">
+        table,
+        th,
+        td {
+            border: 1px solid rgb(241, 232, 232);
+        }
+        table {
+            width: 0.5rem;
+            height: 0.5rem;
+            background-color: red;
+        }
+        img{
+            width: 90%; /*para que salga la tabla en la pantalla entera.*/
+            visibility: hidden;
+        }
+    </style>
+</head>
+<!-- onload es un evento de js en html que se activa al cargar el objeto html, hace que se inicie el juego
+que rellene el grid -->
+<body onload="startGame()">
+
+    <!-- Paso 1. crear la tabla de 3 filas y 4 columnas, insertar en cada celda un input text no modificable (con disabled) -->
+    <!-- Paso 2. Insertar la imagen de los simpsons 2 veces en celdas que yo elija. Ejemplo: <img id="img1" src="img/01_lisa.png">-->
+   
+   
+   <table id="memoryGame">
+
+   </table>
+   
+   
+    <!-- <table class="memorysimpson">
+
+        <tr>
+
+            <td>Celda 1
+                <img id="img1" src="img/04_marge.png">
+                <input type="text" value="0" disabled>
+            </td>
+
+            <td>Celda 2
+                <img id="img1" src="img/06_flanders.png">
+                <input type="text" value="0" disabled>
+            </td>
+
+            <td>Celda 3
+                <img id="img1" src="img/03_homer.png">
+                <input type="text" value="0" disabled>
+            </td>
+            <td>Celda 4
+                <img id="img1" src="img/02_bart.png">
+                <input type="text" value="0" disabled>
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>Celda 5
+                <img id="img1" src="img/03_homer.png">
+                <input type="text" value="0" disabled>
+            </td>
+
+            <td>Celda 6
+                <img id="img1" src="img/01_lisa.png">
+                <input type="text" value="0" disabled>
+            </td>
+
+            <td>Celda 7
+                <img id="img1" src="img/05_maggie.png">
+                <input type="text" value="0" disabled>
+            </td>
+            <td>Celda 8
+                <img id="img1" src="img/02_bart.png">
+                <input type="text" value="0" disabled>
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>Celda 9
+                <img id="img1" src="img/05_maggie.png">
+                <input type="text" value="0" disabled>
+            </td>
+
+            <td>Celda 10
+                <img id="img1" src="img/06_flanders.png">
+                <input type="text" value="0" disabled>
+            </td>
+
+            <td>Celda 11
+                <img id="img1" src="img/04_marge.png">
+                <input type="text" value="0" disabled>
+            </td>
+            <td>Celda 12
+                <img id="img1" src="img/01_lisa.png">
+                <input type="text" value="0" disabled>
+            </td>
+
+        </tr>
+
+
+    </table> -->
+
+    
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- U4T1 - Formularios   Rocio del Real
+    Prepara un formulario diseñado para almacenar los discos con los que  trabajamos en el tema anterior.
+
+    Recuerda qué elementos se  almacenaban,y elije el componente de formulario más adecuado:
+        Nombre del disco.
+        Grupo de música o cantante.
+        Año de publicación.
+        Tipo de música (podrá ser “rock”, “pop”, “punk” o “indie”);
+        Localización: almacenará un número de estantería.
+        Prestado: almacenará un valor booleano. Por defecto será false
+    
+    Ojo: solo hacer el formulario en html (obligatorio)
+    
+    Nota: luego hacer una versión B donde un fichero js recoja los datos del formulario (opcional)
+    </html>-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U4 T1 Formularios</title>
+</head>
+<body>
+    
+    <form>
+        <label for="nombre">Nombre del disco:</label>
+        <input type="text" name="nombre"><br>
+        <label for="artista">Grupo/artista:</label>
+        <input type="text" name="artista"><br>
+        <label for="anyo">Año de publicacion:</label>
+        <input type="date"></input><br>
+        <label for="tipo">Tipo de musica:</label>
+        <select name="tipo">
+            <option value="rock" selected>Rock</option>
+            <option value="pop">Pop</option>
+            <option value="punk">Punk</option>
+            <option value="indie">Indie</option>
+        </select><br>
+        <label for="localizacion">Localizacion:</label>
+        <input type="number" name="localizacion"><br>
+        <label for="prestado">Prestado:</label>
+        <input type="checkbox" name="prestado"><br>
+        <button type="submit">Enviar</button>
+    </form>
+
+</body>
+</html>
