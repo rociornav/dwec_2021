@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!-- rocio del real -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="script.js" defer></script>
+    <style type="text/css">
+    #errores {
+    float: left;
+    background: #FF6633;
+    width: 325px;
+  }
+
+  #tiradas {
+    float: left;
+    background: #CCFF33;
+    width: 325px;
+  }
+
+  .error {
+    border: solid 2px #FF0000;
+
+  }
+  .correct {
+    border: solid 2px #1c7414;
+
+  }
+
+  /* Selecciona cualquier <input> cuando se enfoca */
+   /*  input:focus {
+    color: rgb(12, 143, 18);
+    } */
+
+    form {
+  border: 1px solid;
+  color: gray;
+  padding: 4px;
+    }
+
+    form:focus-within {
+    background: #ff8;
+    color: rgb(15, 119, 15);
+    }
+
+    input {
+    margin: 4px;
+    }
+
+    
+    </style>
+</head>
+<body>
+    <form name="formjuego" id="formjuego" action="http://www.google.es" method="get">
+        <table>
+          
+            <tr>
+                <td>
+                  <label for="nombre">Nombre:</label>
+                </td>
+                <td>
+                  <input type="text" name="nombre" id="nombre" >
+                </td>
+               
+            </tr>
+            <tr>
+                <td>
+                  <label for="ano">Año:</label>
+                </td>
+                <td>
+                  <input name="ano" type="text" id="ano" maxlength="4">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                  <label for="hab">Habilidades:</label>
+                </td>
+                <td>
+                  <input name="hab" type="text" id="hab">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                  <label for="herir">Tirada herir:</label>
+                </td>
+                <td>
+                  <input name="herir" type="text" id="herir">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                  <label for="rol">Rol:</label>
+                </td>
+                <td>
+                  <select name="rol" id="rol">
+                    <option value="0" selected="selected">Seleccione Rol</option>
+                    <option value="li">Líder</option>
+                    <option value="com">Combate</option>
+                    <option value="co">Comunicaciones</option>
+                    <option value="de">Demoliciones</option>
+                    <option value="fa">Fanático</option>
+                  </select>
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  <label for="pass">Password:</label>
+                </td>
+                <td>
+                    <input type="password" id="pass">
+                </td>
+            </tr>
+            
+          
+        </table>
+        <p>
+            <input type="reset" name="limpiar" id="button" value="Limpiar">
+            <input type="submit" name="enviar" id="enviar" value="Enviar">
+        </p>
+      </form>
+      <div id="errores"></div>
+    <div id="tiradas"></div>
+</body>
+</html>

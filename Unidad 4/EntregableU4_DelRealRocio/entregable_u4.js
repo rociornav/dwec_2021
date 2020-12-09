@@ -19,6 +19,8 @@ function iniciar() {
     apellidos.value=val.toUpperCase();
   })
 
+  set_cookie("contador", 1, 1);
+  document.getElementById('intentos').innerHTML = "Intento de envios del formulario: " + get_cookie("contador");
  
   //localStorage.setItem("cookie",0);//para restaurar el contador cada vez que se cierre la pagina
 }
@@ -210,7 +212,7 @@ function validateProvincia(){
 
 function validar(e) {
   //contadorCookieB();
-  contadorCookie();
+  //contadorCookie();
   if (
     validatePersona("nombre") &&
     validatePersona("apellidos") &&
@@ -241,7 +243,7 @@ function contadorCookieB(){
 */
 
 //contador cookie
-let cont=0;
+/*let cont=0;
 function contadorCookie(){
     cont++;
     let d = new Date();
@@ -253,7 +255,7 @@ function contadorCookie(){
     //path=/ --> La ruta debe ser absoluta 
     document.cookie = "contador" + "=" + cont + ";" + "expires=" + d.toUTCString() + ";path=/";
     document.getElementById('intentos').innerHTML = "Intento de Envíos del formulario: " + cont;
-}
+}*/
 
 function error(element){
   element.className = "error";
@@ -265,3 +267,32 @@ function limpiarError(elemento){ //no funciona
 }
 
 
+let get_cookie = (nombre) => {
+  let nom = nombre + "=";
+  let array = document.cookie.split(";");
+  for (let i = 0; i < array.length; i++) {
+      let c = array[i];
+      console.log(c);
+      while (c.charAt(0) == " ") {
+          c = c.substring(1);
+      }
+      if (c.indexOf(nom) == 0) {
+          return c.substring(nom.length);
+      }
+  }
+  return "";
+}
+
+let set_cookie = (nombre, valor, expiracion) => {
+  if (get_cookie("contador") == "") {
+      let d = new Date();
+      d.setTime(d.getTime() + expiracion * 24 * 60 * 60 * 1000);
+      expiracion = "expires=" + d.toUTCString();
+      document.cookie = nombre + "=" + valor + ";" + expiracion + ";path=/";
+  } else {
+      let d = new Date();
+      d.setTime(d.getTime() + expiracion * 24 * 60 * 60 * 1000);
+      expiracion = "expires=" + d.toUTCString();
+      document.cookie = nombre + "=" + (Number(get_cookie("contador"))+1) + ";" + expiracion + ";path=/";
+  }
+}

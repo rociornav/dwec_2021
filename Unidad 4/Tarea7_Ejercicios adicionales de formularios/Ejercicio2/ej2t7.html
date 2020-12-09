@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="ej2t7.js" defer></script>
+    <style type="text/css">
+        td {
+        border: rgb(150, 153, 150) 5px solid;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>Tipo Test</legend>
+        <form name="formulariotest" id="formulariotest" action="http://www.google.es" method="get">
+          <table>
+            
+            <tr>
+              <td>
+                <label for="uno">1. ¿Cuántas rectas pasan por un punto?:</label><br><br>
+              
+                <label><input type="radio" id="cbox1a" name="check1" value="first_checkboxa"> A. Infinitas.</label><br>
+                <label><input type="radio" id="cbox1b" name="check1" value="first_checkboxb"> B. Dos.</label><br>
+                <label><input type="radio" id="cbox1c" name="check1" value="first_checkboxc"> C. Depende del tamaño del punto.</label><br>
+                <br><br>
+              </td>
+             
+            </tr>
+            
+            <tr>
+              <td>
+                <label for="dos">2. Por un punto del espacio, ¿Cuántas rectas paralelas pueden cruzarse?:</label><br><br>
+
+                <label><input type="radio" id="cbox2a" name="check2" value="second_checkboxa"> A. Ninguna.</label><br>
+                <label><input type="radio" id="cbox2b" name="check2" value="second_checkboxb"> B. Una.</label><br>
+                <label><input type="radio" id="cbox2c" name="check2" value="second_checkboxc"> C. Infinitas.</label><br>
+                <br><br>
+              </td>
+            </tr> 
+            
+            <tr>
+              <td>
+                <label for="tres">3. Determine el resultado de la ecuación: 7x-28=6x-1</label><br><br>
+
+                <label><input type="radio" id="cbox3a" name="check3" value="third_checkboxa"> A. x=29.</label><br>
+                <label><input type="radio" id="cbox3b" name="check3" value="third_checkboxb"> B. x=27.</label><br>
+                <label><input type="radio" id="cbox3c" name="check3" value="third_checkboxc"> C. x=16.</label><br>
+                <br><br>
+              </td>
+            </tr>
+            <tr>
+                
+                <td><br><br>
+                    
+                    <center>
+                        <input type="button" id="btn" value="Resultado del test" onclick="resultadosTest()">
+                        <input type="button" value="Reiniciar test" onclick="uncheckAll()">
+                        <input type="button" value="Respuestas correctas" onclick="correctas()">
+                    </center>
+                    
+                </td>
+            </tr>
+     
+            
+          </table>
+        </form>
+      </fieldset>
+</body>
+</html>

@@ -11,4 +11,34 @@ respecto del navegador y la pantalla.
 Cuando se pulse una tecla se deberá mostrar tanto el carácter como su código ascii.
 */
 
-//hola a todos
+
+//Parte 2. Cuando se pulsa una tecla, el color de fondo debe ser azul.
+const yoquese=document.getElementById("micampo");
+function setBG(color){
+    yoquese.style.backgroundColor = color;
+}
+
+window.onload = () => {
+    yoquese.focus();
+}
+
+yoquese.onkeypress= (event) => { 
+    setAscii(event);
+    setBG("#CCE6FF"); 
+} //yoquese.style.backgroundColor = "#0000FF";
+
+yoquese.onclick= () => { setBG("#FFFF00"); }
+
+yoquese.onmouseover= (event) => {
+    setCoordinates(event);
+    setBG("#FFFFFF"); 
+}
+
+function setCoordinates(event){
+    document.getElementById("x").innerHTML = "X: "+event.pageX;
+    document.getElementById("y").innerHTML = "Y: "+event.pageY;
+}
+
+function setAscii(event){
+   yoquese.value = event.keyCode +" => "; 
+}
