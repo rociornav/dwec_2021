@@ -6,7 +6,7 @@ window.onload = iniciar;
 
 function iniciar() {
   document.getElementById("enviar").addEventListener("click", validar, false);
-  set_cookie("tirada", getRandomInt(1,6), 1);
+  set_cookie("tirada", getRandomInt(1,7), 1);
   document.getElementById('tiradas').innerHTML = "Tiradas cookie (Firefox): " + get_cookie("tirada");
 }
 
@@ -30,16 +30,13 @@ function validatePersona(inputId) {
       let expresionCod1=/^[a-zA-Z \u00C0-\u00ff]+$/;
       if((input.value).match(expresionCod1)){
         correct(input);//lo enfocamos en verde si esta bien
-        limpiarError(input);//*
+        //limpiarError(input);
         return true;
       }else{
         error(input); //*
         document.getElementById("errores").innerHTML ="Error! El campo '"+inputId+"' no puede contener número.";
         return false;
       }
-      limpiarError(input);//*
-      return true;
-      
     }
   }
 //2.	El año deberá ser un número entre 700 y 8000 (ambos incluidos).
@@ -64,7 +61,8 @@ function year(){
          return false;
         
       }else{
-        limpiarError(campo);//*
+        correct(campo);//lo enfocamos en verde si esta bien
+        //limpiarError(campo);//*
        //si es numero y SI se encuentra en el intervalo de 700 a 8000 incluidos
        return true;
       }
@@ -91,16 +89,14 @@ function habilidades(){
         //Explicacion: recoge todos los valores que se admiten, uno u otro.
         const expresionCod =/^(M|WS|BS|S|T|W|A|Ld|Sv)*$/;
         if((campo.value).match(expresionCod)){
-          limpiarError(campo);
+          correct(campo);//lo enfocamos en verde si esta bien
+          //limpiarError(campo);
           return true;
         }else{
           error(campo); 
           document.getElementById("errores").innerHTML ="Error! El campo 'Habilidades' debe ser un valor de M|WS|BS|S|T|W|A|Ld|Sv .";
           return false;
         }
-        limpiarError(campo);//*
-        return true;
-        
       }
 }
 
@@ -116,7 +112,7 @@ function tiradaHerir(){
         return false;
       } else {
         
-        limpiarError(campo);
+        correct(campo);//lo enfocamos en verde si esta bien
         return true;
         
       }
@@ -128,11 +124,12 @@ function selectRol(){
     const campo=document.getElementById("rol");
   //tomo el valor del select de la provincia elegida
   let rolElegido=campo.value;
-  //rolElegido = document.formulario.provincia[document.formulario.provincia.selectedIndex].value; 
+  
   
   //compruebo si la provincia está definida
   if (rolElegido != 0) { 
-    limpiarError(campo);
+    correct(campo);//lo enfocamos en verde si esta bien
+    //limpiarError(campo);
      //si estaba definido, entonces es correcto.
      return true;
   }else{ 
@@ -165,19 +162,19 @@ function passwordFormat(){
         */
         const expresionReg=/^[A-Z]{2}[!"#$%&'()*+,\-./;<=>?@[\\\]^_`{|}~]{1}[a-zA-Z]{8,}[#]{1}[0-9]{2}$/;
         if((campo.value).match(expresionReg)){
-          limpiarError(campo);
+          correct(campo);//lo enfocamos en verde si esta bien
+          /* limpiarError(campo); */
           return true;
         }else{
           error(campo); 
           document.getElementById("errores").innerHTML ="Error! El campo 'Contraseña' debe ser un valor que respete el formato del enunciado. Ej: AB$holarocio#12 ";
           return false;
         }
-        limpiarError(campo);//*
-        return true;
-        
       }
 }
 function validar(e) {
+  set_cookie("tirada", getRandomInt(1,7), 1);
+  document.getElementById('tiradas').innerHTML = "Tiradas cookie (Firefox): " + get_cookie("tirada");
     if (
       validatePersona("nombre") &&
       year() &&
@@ -199,10 +196,10 @@ function validar(e) {
     element.className = "error";
     element.focus();
   }
-  function limpiarError(elemento){ 
+  /* function limpiarError(elemento){ 
     elemento.className = "";
     //document.getElementById("errores").innerHTML="";
-  }
+  } */
   function correct(element){
     element.className = "correct";
     element.focus();
@@ -240,6 +237,6 @@ function validar(e) {
         d.setTime(d.getTime() + expiracion * 24 * 60 * 60 * 1000);
         expiracion = "expires=" + d.toUTCString();
         //almaceno el aleatorio en la cookie
-        document.cookie = nombre + "=" + (Number(get_cookie("tirada"))+getRandomInt(1,6))  + ";" + expiracion + ";path=/";
+        document.cookie = nombre + "=" + getRandomInt(1,7)  + ";" + expiracion + ";path=/";
     }
   }
