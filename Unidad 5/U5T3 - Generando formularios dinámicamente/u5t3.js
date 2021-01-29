@@ -136,7 +136,16 @@ function setForm() {
 
 
     ////// 2) Iteramos
-    data.map((input) => {
+    data.map((input) => { //map es una funcion que tiene el mismo comportamiento que un foreach
+        
+        /*
+        data.forEach((input) => { }   --> con foreach
+        
+        for (input of data) {
+        for (i = 0; i < data.length; i++) { const input = data[i];
+        */
+
+
         // "input" es la variable que contiene cada uno de los elementos del array "data"
 
         // Cada elemento del formulario se encapsulará en un "div" y lo metemos vacio en el DOM
