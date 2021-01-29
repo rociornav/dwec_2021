@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="bucles1.js" defer></script>
+</head>
+<body>
+    <form name="selectForm">
+        <p>
+          <label for="musicTypes">Elija algunos tipos de música, luego haga clic en el botón de abajo:</label>
+          <select id="musicTypes" name="musicTypes" multiple="multiple">
+            <option selected="selected">R&B</option>
+            <option>Jazz</option>
+            <option>Blues</option>
+            <option>New Age</option>
+            <option>Classical</option>
+            <option>Opera</option>
+          </select>
+        </p>
+        <p >
+            <input id="btn1" type="button" value="¿Cuántas opciones hay en total?" onclick="numOptionsTotalB()"/>
+            <span id="rdo1"></span> <!-- para poner la solucion al lado -->
+        </p>
+        <p>
+            <input id="btn2" type="button" value="¿Cuántos SI están seleccionados?" />
+            <span id="rdo2"></span> <!-- para poner la solucion al lado -->
+        </p>
+        <p><input id="btn3" type="button" value="¿Cuántos NO están seleccionados?" /></p>
+    </form>
+   
+    <div id="resultados">
+
+    </div>
+</body>
+</html>
