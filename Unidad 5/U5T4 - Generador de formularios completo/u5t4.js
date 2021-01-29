@@ -62,17 +62,6 @@ const arrayButtonColumns=[
     {text: 'Botón ocho', funcion: funcionForButtonEight}
 ];
 
-const functionsData={
-   1: {questions: 'Botón uno'},
-    {text: 'Botón dos', funcion: funcionForButtonTwo}, 
-    {text: 'Botón tres', funcion: funcionForButtonThree},
-    {text: 'Botón cuatro', funcion: funcionForButtonFour},
-    {text: 'Botón cinco', funcion: funcionForButtonFive},
-    {text: 'Botón seis', funcion: funcionForButtonSix},
-    {text: 'Botón siete', funcion: funcionForButtonSeven},
-    {text: 'Botón ocho', funcion: funcionForButtonEight}
-};
-
 //funcion que cree los botones junto sus columnas
 function createButtons(){
     arrayButtonColumns.forEach((botonData)=>{  //= function(botonData)
