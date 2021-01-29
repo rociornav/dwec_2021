@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocio del Real Entregable U5 DOM</title>
+    <script type="text/javascript" src="entregableu5.js" defer></script>
+    <style type="text/css">
+        #btn1{
+            padding: 15px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        th, td {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Rocío del Real - Entregable U5 DOM</h2>
+    <form id="formulario">
+        <p>
+            <label for="nCol">Nº columnas:</label><br>
+            <input type="text" id="cantCol" name="cantCol" ><br>
+        </p>
+        
+        <p>
+            <label for="nFila">Nº Filas:</label><br>
+            <input type="text" id="cantFila" name="cantFila" ><br>
+        </p>
+        
+        <p>
+            <input type="checkbox" id="chHeader" name="chHeader" >
+            <label for="chHeader"> Marca si desea introducir header.</label><br>
+        </p>
+        
+        <p>
+            <label for="valueDef">Pon un valor para rellenar cada celda:</label><br>
+            <input type="text" id="defaultValue" name="defaultValue" value=""><br>
+        </p>
+        
+        <p>
+            <label for="grosorB">Grosor del borde:</label><br>
+            <input type="text" id="grosorB" name="grosorB" ><br>
+        </p>
+        
+        <p>
+            <label for="colors">Elija un color:</label>
+            <select id="colors" name="colors" >
+                <option selected="selected" value="black">Negro</option>
+                <option value="blue">Azul</option>
+                <option value="green">Verde</option>
+                <option value="red">Rojo</option>
+            </select>
+        </p>
+
+        <p><input id="btn1" type="button" value="Generar" onclick="crearTabla()"/></p>
+    </form>
+    <hr>
+    <div id="rdoTabla"></div>
+</body>
+</html>
