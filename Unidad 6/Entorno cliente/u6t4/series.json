@@ -1,0 +1,25 @@
+{
+    "series": [
+        {
+            "titulo": "Buffy, cazavampiros",
+            "cadena": "Netflix",
+            "director": "Joss Whedon",
+            "anyo": "1997",
+            "terminada": "SI"
+        },
+        {
+            "titulo": "Entre fantasmas",
+            "cadena": "HBO",
+            "director": "John Gray",
+            "anyo": "2005",
+            "terminada": "SI"
+        },
+        {
+            "titulo": "Bridgerton",
+            "cadena": "Netflix",
+            "director": "Chris Van Dusen",
+            "anyo": "2020",
+            "terminada": "NO"
+        }
+    ]
+}

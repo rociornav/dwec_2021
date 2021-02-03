@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<series>
+  <serie>
+    <titulo>Buffy, cazavampiros</titulo>
+    <cadena>Netflix</cadena>
+    <director>Joss Whedon</director>
+    <anyo>1997</anyo>
+    <terminada>SI</terminada>
+  </serie>
+  <serie>
+    <titulo>Entre fantasmas</titulo>
+    <cadena>HBO</cadena>
+    <director>John Gray</director>
+    <anyo>2005</anyo>
+    <terminada>SI</terminada>
+  </serie>
+  <serie>
+    <titulo>Bridgerton</titulo>
+    <cadena>Netflix</cadena>
+    <director>Chris Van Dusen</director>
+    <anyo>2020</anyo>
+    <terminada>NO</terminada>
+  </serie>
+</series>

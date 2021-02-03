@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: mariadb
--- Tiempo de generación: 25-12-2020 a las 14:59:19
+-- Tiempo de generación: 21-01-2021 a las 11:39:50
 -- Versión del servidor: 10.4.17-MariaDB-1:10.4.17+maria~focal
 -- Versión de PHP: 7.4.11
 
@@ -18,10 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `alixar`
+-- Base de datos: `dwec`
 --
-CREATE DATABASE IF NOT EXISTS `alixar` DEFAULT CHARACTER SET latin1 COLLATE latin1_spanish_ci;
-USE `alixar`;
+CREATE DATABASE IF NOT EXISTS `dwec` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `dwec`;
 
 -- --------------------------------------------------------
 
@@ -71,3 +71,18 @@ INSERT INTO `alumnos` (`idAlumno`, `alumno`, `puntuacion`) VALUES
 --
 ALTER TABLE `alumnos`
   ADD PRIMARY KEY (`idAlumno`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `alumnos`
+--
+ALTER TABLE `alumnos`
+  MODIFY `idAlumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

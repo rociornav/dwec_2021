@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="u6t6_5.js" defer></script>
+    <style type="text/css">
+        /* tabla*/
+        /* Color del año */
+        .rojo {
+            color: red;
+        }
+
+        .verde {
+            color: green;
+        }
+
+        .amarillo {
+            color: yellow;
+        }
+
+        .titulo {
+            font-weight: bold;
+        }
+
+        .director {
+            font-style: italic;
+        }
+
+        .terminada img {
+            width: 50px;
+            height: 50px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 5px;
+        }
+
+        /* Color del mensaje del servidor 
+        .rojo {
+            color: red;
+        }
+
+        .verde {
+            color: green;
+        }*/
+
+        /*Diseño split*/
+        .split {
+            height: 100%;
+            width: 50%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+        .left {
+            left: 0;
+            background-color: rgb(131, 124, 124);
+        }
+
+        .right {
+            right: 0;
+            background-color: rgb(56, 59, 59);
+            height: 100%;
+        }
+
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .centered img {
+            width: 150px;
+            border-radius: 50%;
+        }
+
+        body {
+            font-family: Arial;
+            color: white;
+        }
+
+        #mostrar {
+            padding-bottom: 3rem;
+        }
+
+        .right .centered {
+            height: 80%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="split left">
+        <div class="centered">
+            <h2>Introducir datos de una serie (post-fetch):</h2>
+            <form id="formulario">
+                <p>
+                    <label for="title">Título:</label>
+                    <input type="text" id="title" name="title" value="La Informática"><br>
+                </p>
+
+                <p>
+                    <label for="director">Director:</label>
+                    <input type="text" id="director" name="director" value="Rocio del r."><br>
+                </p>
+
+                <p>
+                    <label for="cadena">Cadena:</label>
+                    <input type="text" id="cadena" name="cadena" value="HBO"><br>
+                </p>
+
+                <p>
+                    <label for="anyo">Año:</label>
+                    <input type="text" id="anyo" name="anyo" value="2021"><br>
+                </p>
+
+                <p>
+                    <label for="terminada">Terminada:</label>
+                    <input type="checkbox" id="terminada" name="terminada"><br>
+                </p>
+
+                <p><button id="btn1" type="button" onclick="enviar()">Send Data</button></p>
+            </form>
+            <div id="msg"></div>
+        </div>
+    </div>
+
+    <div class="split right">
+        <div class="centered">
+            <h2>Mostrar resultados:</h2>
+            <div id="mostrar"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="u6t2.js" defer></script>
+    <style type="text/css">
+        #btnLocalidad {
+          text-align: center;
+          cursor: pointer;
+          background-color: #0d96c3;
+          font-weight: bold;
+          color: aliceblue;
+          border-radius: 5px;
+        }
+        #btnLocalidad:hover{
+            background-color: rgb(255, 53, 102);
+        }
+       
+       /* Para los mensajes */
+        .rojo{
+            color: red;
+        }
+
+        .verde{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <form id="formUno"> <!--action="u6t2.php" method="GET"  PARA ENVIAR EL FORM-->
+        <p>
+            <label for="localidadN">Nombre localidad:</label><br>
+            <input type="text" id="localidadN" name="localidadName">
+            <!--para los form <input type="submit" id="btnLocalidad" value="Enviar" onclick="enviar()"> -->
+            <button type="button" id="btnLocalidad" onclick="enviar()">Enviar</button>
+        </p>
+    </form>
+    <div id="resultado"></div>
+</body>
+</html>
