@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Practicando examenes antiguos para la prueba del 4 de febrero -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="u5practicando.js" defer></script>
+    <style type="text/css">
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="formUno">
+        <p>
+            <label for="qCol">Cantidad de columnas:</label>
+            <input type="text" id="qCol" name="qCol"><br>
+        </p>
+        <p>
+            <label for="qFil">Cantidad de filas:</label>
+            <input type="text" id="qFil" name="qFil">
+        </p>
+        <p>
+            <input type="checkbox" id="headerV" name="headerV">
+            <label for="headerV"> Marca para introducir header.</label>
+        </p>
+        <p>
+            <label for="defectV">Valor por defecto:</label>
+            <input type="text" id="defectV" name="defectV">
+        </p>
+        <p>
+            <label for="thickness">Grosor del borde:</label>
+            <input type="text" id="thickness" name="thickness">
+        </p>
+        <p>
+            <label for="colors">Elige un color:</label>
+
+            <select name="colors" id="colors">
+                <option value="black" selected>Negro</option>
+                <option value="red">Rojo</option>
+                <option value="green">Verde</option>
+                <option value="orange">Naranja</option>
+            </select>
+        </p>
+        <p><button type="button" onclick="crearTabla()">Generar Tabla</button></p>
+    </form>
+    <hr>
+    <div id="generarTabla"></div>
+</body>
+
+</html>
