@@ -18,7 +18,7 @@ function insertaXHR(){
       if (xhr.status === 200) {
         nombresCCAA=JSON.parse(xhr.responseText);
         tipoPeticion="XMLHttpRequest";
-        showTabla();
+        showTablaAndSelect();
       } else {
         console.error(xhr.statusText);
       }
@@ -45,22 +45,49 @@ function insertaFetch(){
     .then(data => {
       nombresCCAA=data;
       tipoPeticion="XMLHttpRequest";
-      showTabla();
+      showTablaAndSelect();
     });
 }
 
-function showTabla(){
-  const tablaDiv=document.getElementById("tablaDiv");
+function showTablaAndSelect(){
   //seleccionable ccaa
   const selectCCAA= document.getElementById("selectCcaa");
+  selectCCAA.innerHTML="";//vacia select para no acumular
+  //creamos tabla
+  const tablaDiv=document.getElementById("tablaDiv");
+  tablaDiv.innerHTML="";//vacia tabla para no acumular
+  const tablaElem = document.createElement("table");
+  tablaElem.id = "tablaVacunacion";
+
+  const filaHeaderElem=document.createElement("tr");
+  const headers = ["Comunidad","D. Entregadas","D. Admin","D. Completa","% Entregadas","% Pobl. Admin","% Pobl. Completa"];
+  headers.map((elemento)=>{
+      const thElem=document.createElement("th");
+      thElem.innerText=elemento;
+      filaHeaderElem.appendChild(thElem);
+  })
+  tablaElem.appendChild(filaHeaderElem);
   nombresCCAA.map((comunidad)=>{
+      //rellenamos option
       const optionElem=document.createElement("option");
       const valor=comunidad.ccaa;
       optionElem.value=valor;
       optionElem.innerText=valor;
       selectCCAA.appendChild(optionElem);
+
+      //rellenamos tabla
+      const filaElem=document.createElement("tr");
+      const colums = ["ccaa","dosisEntregadas","dosisAdministradas","dosisPautaCompletada","porcentajeEntregadas","porcentajePoblacionAdministradas","porcentajePoblacionCompletas"];
+      colums.map((elemento)=>{
+          const tdElem=document.createElement("td");
+          const valor=comunidad[elemento]; //!!
+          tdElem.innerText=valor;
+          filaElem.appendChild(tdElem);
+      })
+      tablaElem.appendChild(filaElem);
   });
-  tablaDiv.appendChild(selectCCAA);
+
+  tablaDiv.appendChild(tablaElem);
 }
 
 window.onload=loadFromJSONFile;
