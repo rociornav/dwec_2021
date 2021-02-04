@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocio del Real_examen</title>
+    <script type="text/javascript" src="script.js" defer></script>
+</head>
+
+<body>
+    <div id="seleccionable"></div>
+    <label for="quantity">D. Entregadas:</label>
+    <input type="number" id="quantity" name="quantity" min="1" max="5">
+    <label for="quantity">D. Admin.:</label>
+    <input type="number" id="quantity" name="quantity" min="1" max="5">
+    <label for="quantity">D. Completa:</label>
+    <input type="number" id="quantity" name="quantity" min="1" max="5">
+    <button type="button" id="modifB" onclick="modificaData()">Modificar Datos</button>
+    <hr>
+    <div id="rdo"></div>
+    <hr>
+    <button type="button" id="btn1" onclick="peticionXHR()">Cargar datos vacunación XHR</button>
+    <button type="button" id="btn2" onclick="peticionFetch()">Cargar datos vacunación Fetch</button>
+</body>
+
+</html>
