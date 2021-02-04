@@ -4,24 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rocio del Real_examen</title>
+    <title>Document</title>
     <script type="text/javascript" src="script.js" defer></script>
 </head>
 
 <body>
-    <div id="seleccionable"></div>
-    <label for="quantity">D. Entregadas:</label>
-    <input type="number" id="quantity" name="quantity" min="1" max="5">
-    <label for="quantity">D. Admin.:</label>
-    <input type="number" id="quantity" name="quantity" min="1" max="5">
-    <label for="quantity">D. Completa:</label>
-    <input type="number" id="quantity" name="quantity" min="1" max="5">
-    <button type="button" id="modifB" onclick="modificaData()">Modificar Datos</button>
+    <form id="formDatos">
+        <label for="ccaa">CC.AA.:</label>
+        <select id="selectCcaa"></select>
+
+        <label for="dosisEntregadas">D. Entregadas.:</label>
+        <input type="number" id="dosisEntregadas" name="dosisEntregadas">
+        
+        <label for="dosisAdministradas">D. Admin.:</label>
+        <input type="number" id="dosisAdministradas" name="dosisAdministradas">
+
+        <label for="dosisPautaCompletada">D. Completa:</label>
+        <input type="number" id="dosisPautaCompletada" name="dosisPautaCompletada">
+        
+        <label for="porcentajeEntregadas">P. Entregadas:</label>
+        <input type="number" id="porcentajeEntregadas" name="porcentajeEntregadas">
+
+        <label for="porcentajePoblacionAdministradas">P. Admin.:</label>
+        <input type="number" id="porcentajePoblacionAdministradas" name="porcentajePoblacionAdministradas">
+        
+        <label for="porcentajePoblacionCompletas">P. Completa:</label>
+        <input type="number" id="porcentajePoblacionCompletas" name="porcentajePoblacionCompletas">
+    </form>
     <hr>
-    <div id="rdo"></div>
+    <p>Resultados</p>
     <hr>
-    <button type="button" id="btn1" onclick="peticionXHR()">Cargar datos vacunación XHR</button>
-    <button type="button" id="btn2" onclick="peticionFetch()">Cargar datos vacunación Fetch</button>
+    <h2>Tabla de vacunacion</h2>
+    <p id="botones">
+        <button id="xhrButton" type="button" onclick="insertaXHR()">Cargar datos vacunación (XMLHttpRequest)</button>
+        <button id="fetchButton" type="button" onclick="insertaFetch()">Cargar datos vacunación (Fetch)</button>
+    </p>
+    <div id="tablaDiv"></div>
 </body>
 
 </html>
