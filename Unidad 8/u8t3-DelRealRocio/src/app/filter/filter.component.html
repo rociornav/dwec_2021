@@ -1,0 +1,10 @@
+<mat-form-field *ngFor="let filter of arrayFilters" [id]="filter.filterId" appearance="fill">
+    <mat-label>{{ filter.filterLabel }}</mat-label>
+    <mat-select (selectionChange)='handler($event)' [id]="filter.filterProp">
+        <mat-option *ngFor="let option of allFiltersProp[filter.filterProp]" [value]="option">
+            <span *ngIf="filter.filterProp == 'centro.codigo_provincia' ; else resto">{{provincias[option]}}</span>
+            <ng-template #resto>{{option}}</ng-template>
+        </mat-option>
+        <!-- <mat-option>{{ filter.filterProp }}</mat-option> -->
+    </mat-select>
+</mat-form-field>

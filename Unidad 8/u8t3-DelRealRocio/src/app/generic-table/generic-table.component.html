@@ -1,0 +1,98 @@
+<!-- <p>generic-table works!</p>
+<table>
+    <tr *ngFor="let d of filteredData">
+        <td>{{d.familia}}</td>
+        <td>{{d.codigo_ciclo}}</td>
+        <td>{{d.nombre_ciclo}}</td>
+        <td>{{d.tipo}}</td>
+        <td>{{d.turno}}</td>
+        <td>{{d.bilingue}}</td>
+        <td>{{d.dual}}</td>
+        <td>{{d.centro.codigo_provincia}}</td>
+    </tr>
+</table> -->
+
+<table mat-table [dataSource]="filteredData" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- centro Column -->
+    <ng-container matColumnDef="centro">
+        <th mat-header-cell *matHeaderCellDef> Centro </th>
+        <td mat-cell *matCellDef="let element">
+
+            <mat-expansion-panel hideToggle *ngIf="element.centro != null " class="noNestedPadding">
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="mat-body-2">
+                        {{element.centro.codigo}} - {{element.centro.nombre}}
+                    </mat-panel-title>
+                    <!-- <mat-panel-description>
+                    </mat-panel-description> -->
+                </mat-expansion-panel-header>
+                <mat-list>
+                    <mat-list-item><span class="mat-body-2">Dirección:&nbsp;</span> {{element.centro.direccion}}
+                    </mat-list-item>
+                    <mat-list-item><span class="mat-body-2">Teléfono:&nbsp;</span> {{element.centro.telefono}}
+                    </mat-list-item>
+                    <mat-list-item><span class="mat-body-2">Localidad:&nbsp;</span> {{element.centro.localidad}}
+                    </mat-list-item>
+                    <mat-list-item><span class="mat-body-2">Provincia:&nbsp;</span>
+                        {{provincias[element.centro.codigo_provincia]}}
+                    </mat-list-item>
+                </mat-list>
+            </mat-expansion-panel>
+
+            <!-- <mat-list-item *ngIf="element.centro != null" class="mat-body-2">{{element.centro.codigo}} -
+                {{element.centro.nombre}}</mat-list-item>
+            <mat-list *ngIf="element.centro != null ">
+                <mat-list-item class="mat-body-2">{{element.centro.codigo}} - {{element.centro.nombre}}</mat-list-item>
+            </mat-list> -->
+        </td>
+    </ng-container>
+
+    <!-- nombre_ciclo Column -->
+    <ng-container matColumnDef="nombre_ciclo">
+        <th mat-header-cell *matHeaderCellDef> Nombre Ciclo </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre_ciclo}} </td>
+    </ng-container>
+
+    <!-- tipo Column -->
+    <ng-container matColumnDef="tipo">
+        <th mat-header-cell *matHeaderCellDef> Tipo </th>
+        <td mat-cell *matCellDef="let element"> {{element.tipo}} </td>
+    </ng-container>
+
+    <!-- turno Column -->
+    <ng-container matColumnDef="turno">
+        <th mat-header-cell *matHeaderCellDef> Turno </th>
+        <td mat-cell *matCellDef="let element"> {{element.turno}} </td>
+    </ng-container>
+
+    <!-- bilingue Column -->
+    <ng-container matColumnDef="bilingue">
+        <th mat-header-cell *matHeaderCellDef> Bilingüe </th>
+        <td mat-cell *matCellDef="let element"> {{element.bilingue}} </td>
+    </ng-container>
+
+    <!-- dual Column -->
+    <ng-container matColumnDef="dual">
+        <th mat-header-cell *matHeaderCellDef> Dual </th>
+        <td mat-cell *matCellDef="let element"> {{element.dual}} </td>
+    </ng-container>
+
+    <!-- familia Column -->
+    <!-- <ng-container matColumnDef="familia">
+        <th mat-header-cell *matHeaderCellDef> Familia </th>
+        <td mat-cell *matCellDef="let element"> {{element.familia}} </td>
+    </ng-container> -->
+
+    <!-- codigo_ciclo Column -->
+    <!-- <ng-container matColumnDef="codigo_ciclo">
+        <th mat-header-cell *matHeaderCellDef> Cod. Ciclo </th>
+        <td mat-cell *matCellDef="let element"> {{element.codigo_ciclo}} </td>
+    </ng-container> -->
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let data; columns: displayedColumns;"></tr>
+</table>
