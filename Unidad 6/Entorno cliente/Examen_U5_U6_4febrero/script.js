@@ -1,12 +1,11 @@
-let nombresCCAA=[];
+let datosCCAA=[];
 let tipoPeticion="";
-let ficheroJSON = {};
 /*return lista json con las ccaa*/
 function loadFromJSONFile(){
   fetch("latest.json") //la url del php por parametro
   .then(response => response.json())
   .then(data => {
-    ficheroJSON=data;
+    datosCCAA=data;
   });
 }
 
@@ -16,7 +15,7 @@ function insertaXHR(){
   xhr.onload = function (e) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
-        nombresCCAA=JSON.parse(xhr.responseText);
+        datosCCAA=JSON.parse(xhr.responseText);
         tipoPeticion="XMLHttpRequest";
         showTablaAndSelect();
       } else {
@@ -27,13 +26,13 @@ function insertaXHR(){
   xhr.onerror = function (e) {
     console.error(xhr.statusText);
   };
-  xhr.send(JSON.stringify(ficheroJSON));
+  xhr.send(JSON.stringify(datosCCAA));
 }
 
 function insertaFetch(){
     fetch("insertar_comunidades.php", {
       method: 'POST',
-      body: JSON.stringify(ficheroJSON)
+      body: JSON.stringify(datosCCAA)
     })
     .then(response => {
       if (response.status === 200) {
@@ -43,7 +42,7 @@ function insertaFetch(){
       }
     })
     .then(data => {
-      nombresCCAA=data;
+      datosCCAA=data;
       tipoPeticion="XMLHttpRequest";
       showTablaAndSelect();
     });
@@ -67,7 +66,7 @@ function showTablaAndSelect(){
       filaHeaderElem.appendChild(thElem);
   })
   tablaElem.appendChild(filaHeaderElem);
-  nombresCCAA.map((comunidad)=>{
+  datosCCAA.map((comunidad)=>{
       //rellenamos option
       const optionElem=document.createElement("option");
       const valor=comunidad.ccaa;
@@ -90,4 +89,65 @@ function showTablaAndSelect(){
   tablaDiv.appendChild(tablaElem);
 }
 
+function modifyData(){
+  const arrayDatosImp=[
+    "dosisAdministradas",
+    "dosisEntregadas",
+    "dosisPautaCompletada",
+    "porcentajeEntregadas",
+    "porcentajePoblacionAdministradas",
+    "porcentajePoblacionCompletas"
+  ];
+
+  const obj={
+    "ccaa": document.getElementById("selectCcaa").value
+  };
+  arrayDatosImp.map((prop)=>{
+     obj[prop]=document.getElementById(prop).value;
+  });
+  /*
+  const obj={
+    "ccaa": document.getElementById("selectCcaa").value,
+    "dosisAdministradas": document.getElementById("dosisAdministradas").value,
+    "dosisEntregadas": document.getElementById("dosisEntregadas").value,
+    "dosisPautaCompletada": document.getElementById("dosisPautaCompletada").value,
+    "porcentajeEntregadas": document.getElementById("porcentajeEntregadas").value,
+    "porcentajePoblacionAdministradas": document.getElementById("porcentajePoblacionAdministradas").value,
+    "porcentajePoblacionCompletas": document.getElementById("porcentajePoblacionCompletas").value
+  };*/
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "actualizar_comunidad.php", true); //la url del php por parametro
+  xhr.onload = function (e) {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+
+        const pos=datosCCAA.findIndex((comunidad) => comunidad.ccaa == obj.ccaa); //devuelve la posicion
+        // datosCCAA[pos].dosisAdministradas=obj.dosisAdministradas;
+        // datosCCAA[pos].dosisEntregadas=obj.dosisEntregadas;
+        // datosCCAA[pos].dosisPautaCompletada=obj.dosisPautaCompletada;
+        // datosCCAA[pos].porcentajeEntregadas=obj.porcentajeEntregadas;
+        // datosCCAA[pos].porcentajePoblacionAdministradas=obj.porcentajePoblacionAdministradas;
+        // datosCCAA[pos].porcentajePoblacionCompletas=obj.porcentajePoblacionCompletas;
+        /*let pos=-1;
+        datosCCAA.map((putaComunidadConSusCosas, index) =>{
+          if(putaComunidadConSusCosas.ccaa==obj.ccaa) pos=index;
+        });*/
+        
+        
+        arrayDatosImp.map((prop) => {
+          datosCCAA[pos][prop]=obj[prop];
+        });
+
+       
+        showTablaAndSelect();
+      } else {
+        console.error(xhr.statusText);
+      }
+    }
+  };
+  xhr.onerror = function (e) {
+    console.error(xhr.statusText);
+  };
+  xhr.send(JSON.stringify(obj));
+}
 window.onload=loadFromJSONFile;

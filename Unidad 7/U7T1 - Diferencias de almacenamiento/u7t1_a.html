@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocío del Real - U7T1</title>
+    <script type="text/javascript" src="u7t1_a.js" defer></script>
+    <style type="text/css">
+        body,
+        button {
+            text-transform: uppercase;
+        }
+
+        #dcha {
+            float: left;
+            margin-right: 15px;
+        }
+
+        #izq {
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 id="titleH2">Ejemplo de almacenamiento local con html5</h2>
+    <form>
+        <p>
+            <label for="tipoAlmacenamiento">Area de almacenamiento:</label>
+            <select name="tipoAlmacenamiento" id="tipoAlmacenamiento">
+                <option value="local">Local</option>
+                <option value="session">Session</option>
+            </select>
+        </p>
+        <p>
+            <label for="clave">Clave:</label>
+            <input type="text" name="clave" id="clave">
+        </p>
+        <p>
+            <label for="valor">Valor:</label>
+            <input type="text" name="valor" id="valor">
+        </p>
+        <p>
+            <button type="button" id="btn1" onclick="addClaveValor()">Guardar</button>
+            <button type="button" id="btn2" onclick="removeClaveValor()">Eliminar</button>
+            <button type="button" id="btn3" onclick="refreshTextAreas()">Refrescar</button>
+            <button type="button" id="btn4" onclick="checkCompatibility()">Comprobar compatibilidad del
+                navegador</button>
+        </p>
+        <p>
+        <div id="dcha">
+            <label for="localStorage">Claves y valores en Local Storage:</label><br>
+            <textarea id="localStorage" name="localStorage" rows="10" cols="60"></textarea>
+        </div>
+        <div id="izq">
+            <label for="sessionStorage">Claves y valores en Session Storage:</label><br>
+            <textarea id="sessionStorage" name="sessionStorage" rows="10" cols="60"></textarea>
+        </div>
+        </p>
+
+    </form>
+</body>
+
+</html>

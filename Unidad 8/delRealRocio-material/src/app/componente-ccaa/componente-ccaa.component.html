@@ -1,0 +1,20 @@
+<!-- <mat-form-field appearance="fill">
+    <mat-label>CC.AA</mat-label>
+    <mat-select>
+        <mat-option value="andalucia">Andalucía</mat-option>
+        <mat-option value="canarias">Canarias</mat-option>
+        <mat-option value="madrid">Madrid</mat-option>
+    </mat-select>
+</mat-form-field> -->
+
+
+<mat-form-field appearance="fill">
+    <mat-label>CC.AA</mat-label>
+    <mat-select name="comunity">
+        <!-- [(ngModel)]="selectedValue" -->
+        <mat-option *ngFor="let comunity of comunities" [value]="comunity.value">
+            {{comunity.viewValue}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+<!-- <p> Selected ccaa: {{selectedValue}} </p> -->
