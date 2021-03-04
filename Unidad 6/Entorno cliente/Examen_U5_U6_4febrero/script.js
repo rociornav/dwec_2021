@@ -1,22 +1,22 @@
-let datosCCAA=[];
-let tipoPeticion="";
+let datosCCAA = [];
+let tipoPeticion = "";
 /*return lista json con las ccaa*/
-function loadFromJSONFile(){
+function loadFromJSONFile() {
   fetch("latest.json") //la url del php por parametro
-  .then(response => response.json())
-  .then(data => {
-    datosCCAA=data;
-  });
+    .then(response => response.json())
+    .then(data => {
+      datosCCAA = data;
+    });
 }
 
-function insertaXHR(){
+function insertaXHR() {
   var xhr = new XMLHttpRequest();
   xhr.open("POST", "insertar_comunidades.php", true); //la url del php por parametro
   xhr.onload = function (e) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
-        datosCCAA=JSON.parse(xhr.responseText);
-        tipoPeticion="XMLHttpRequest";
+        datosCCAA = JSON.parse(xhr.responseText);
+        tipoPeticion = "XMLHttpRequest";
         showTablaAndSelect();
       } else {
         console.error(xhr.statusText);
@@ -29,11 +29,11 @@ function insertaXHR(){
   xhr.send(JSON.stringify(datosCCAA));
 }
 
-function insertaFetch(){
-    fetch("insertar_comunidades.php", {
-      method: 'POST',
-      body: JSON.stringify(datosCCAA)
-    })
+function insertaFetch() {
+  fetch("insertar_comunidades.php", {
+    method: 'POST',
+    body: JSON.stringify(datosCCAA)
+  })
     .then(response => {
       if (response.status === 200) {
         return response.json();
@@ -42,55 +42,55 @@ function insertaFetch(){
       }
     })
     .then(data => {
-      datosCCAA=data;
-      tipoPeticion="XMLHttpRequest";
+      datosCCAA = data;
+      tipoPeticion = "Fetch";
       showTablaAndSelect();
     });
 }
 
-function showTablaAndSelect(){
+function showTablaAndSelect() {
   //seleccionable ccaa
-  const selectCCAA= document.getElementById("selectCcaa");
-  selectCCAA.innerHTML="";//vacia select para no acumular
+  const selectCCAA = document.getElementById("selectCcaa");
+  selectCCAA.innerHTML = "";//vacia select para no acumular
   //creamos tabla
-  const tablaDiv=document.getElementById("tablaDiv");
-  tablaDiv.innerHTML="";//vacia tabla para no acumular
+  const tablaDiv = document.getElementById("tablaDiv");
+  tablaDiv.innerHTML = "";//vacia tabla para no acumular
   const tablaElem = document.createElement("table");
   tablaElem.id = "tablaVacunacion";
 
-  const filaHeaderElem=document.createElement("tr");
-  const headers = ["Comunidad","D. Entregadas","D. Admin","D. Completa","% Entregadas","% Pobl. Admin","% Pobl. Completa"];
-  headers.map((elemento)=>{
-      const thElem=document.createElement("th");
-      thElem.innerText=elemento;
-      filaHeaderElem.appendChild(thElem);
+  const filaHeaderElem = document.createElement("tr");
+  const headers = ["Comunidad", "D. Entregadas", "D. Admin", "D. Completa", "% Entregadas", "% Pobl. Admin", "% Pobl. Completa"];
+  headers.map((elemento) => {
+    const thElem = document.createElement("th");
+    thElem.innerText = elemento;
+    filaHeaderElem.appendChild(thElem);
   })
   tablaElem.appendChild(filaHeaderElem);
-  datosCCAA.map((comunidad)=>{
-      //rellenamos option
-      const optionElem=document.createElement("option");
-      const valor=comunidad.ccaa;
-      optionElem.value=valor;
-      optionElem.innerText=valor;
-      selectCCAA.appendChild(optionElem);
+  datosCCAA.map((comunidad) => {
+    //rellenamos option
+    const optionElem = document.createElement("option");
+    const valor = comunidad.ccaa;
+    optionElem.value = valor;
+    optionElem.innerText = valor;
+    selectCCAA.appendChild(optionElem);
 
-      //rellenamos tabla
-      const filaElem=document.createElement("tr");
-      const colums = ["ccaa","dosisEntregadas","dosisAdministradas","dosisPautaCompletada","porcentajeEntregadas","porcentajePoblacionAdministradas","porcentajePoblacionCompletas"];
-      colums.map((elemento)=>{
-          const tdElem=document.createElement("td");
-          const valor=comunidad[elemento]; //!!
-          tdElem.innerText=valor;
-          filaElem.appendChild(tdElem);
-      })
-      tablaElem.appendChild(filaElem);
+    //rellenamos tabla
+    const filaElem = document.createElement("tr");
+    const colums = ["ccaa", "dosisEntregadas", "dosisAdministradas", "dosisPautaCompletada", "porcentajeEntregadas", "porcentajePoblacionAdministradas", "porcentajePoblacionCompletas"];
+    colums.map((elemento) => {
+      const tdElem = document.createElement("td");
+      const valor = comunidad[elemento]; //!!
+      tdElem.innerText = valor;
+      filaElem.appendChild(tdElem);
+    })
+    tablaElem.appendChild(filaElem);
   });
 
   tablaDiv.appendChild(tablaElem);
 }
 
-function modifyData(){
-  const arrayDatosImp=[
+function modifyData() {
+  const arrayDatosImp = [
     "dosisAdministradas",
     "dosisEntregadas",
     "dosisPautaCompletada",
@@ -99,11 +99,11 @@ function modifyData(){
     "porcentajePoblacionCompletas"
   ];
 
-  const obj={
+  const obj = {
     "ccaa": document.getElementById("selectCcaa").value
   };
-  arrayDatosImp.map((prop)=>{
-     obj[prop]=document.getElementById(prop).value;
+  arrayDatosImp.map((prop) => {
+    obj[prop] = document.getElementById(prop).value;
   });
   /*
   const obj={
@@ -121,7 +121,7 @@ function modifyData(){
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
 
-        const pos=datosCCAA.findIndex((comunidad) => comunidad.ccaa == obj.ccaa); //devuelve la posicion
+        const pos = datosCCAA.findIndex((comunidad) => comunidad.ccaa == obj.ccaa); //devuelve la posicion
         // datosCCAA[pos].dosisAdministradas=obj.dosisAdministradas;
         // datosCCAA[pos].dosisEntregadas=obj.dosisEntregadas;
         // datosCCAA[pos].dosisPautaCompletada=obj.dosisPautaCompletada;
@@ -132,13 +132,13 @@ function modifyData(){
         datosCCAA.map((putaComunidadConSusCosas, index) =>{
           if(putaComunidadConSusCosas.ccaa==obj.ccaa) pos=index;
         });*/
-        
-        
+
+
         arrayDatosImp.map((prop) => {
-          datosCCAA[pos][prop]=obj[prop];
+          datosCCAA[pos][prop] = obj[prop];
         });
 
-       
+
         showTablaAndSelect();
       } else {
         console.error(xhr.statusText);
@@ -150,4 +150,4 @@ function modifyData(){
   };
   xhr.send(JSON.stringify(obj));
 }
-window.onload=loadFromJSONFile;
+window.onload = loadFromJSONFile;

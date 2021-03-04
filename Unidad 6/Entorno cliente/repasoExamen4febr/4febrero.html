@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="4febrero.js" defer></script>
+    <style type="text/css">
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="campos">
+        <label for="ccaa">CC.AA.:</label>
+        <select id="selectCcaa"></select>
+
+        <label for="dosisEntregadas">D.Entregadas:</label>
+        <input type="number" id="dosisEntregadas" />
+
+        <label for="dosisAdministradas">D.Admin:</label>
+        <input type="number" id="dosisAdministradas" />
+
+        <label for="dosisPautaCompletada">D.Completa:</label>
+        <input type="number" id="dosisPautaCompletada" />
+
+        <label for="porcentajeEntregadas">P.Entregadas:</label>
+        <input type="number" id="porcentajeEntregadas" />
+
+        <label for="porcentajePoblacionAdministradas">P.Admin:</label>
+        <input type="number" id="porcentajePoblacionAdministradas" />
+
+        <label for="porcentajePoblacionCompletas">P.Completa:</label>
+        <input type="number" id="porcentajePoblacionCompletas" />
+
+        <button id="modifyButton" type="button" onclick="modifyFetch()">Modificar datos</button>
+    </form>
+
+    <hr>
+    <p>Resultados</p>
+    <div id="datosCargados"></div>
+    <hr>
+    <p id="botones">
+        <button id="xhrButton" type="button" onclick="loadFromJSONFile_XHR()">Cargar datos vacunación
+            (XMLHttpRequest)</button>
+        <button id="fetchButton" type="button" onclick="loadFromJSONFile_FETCH()">Cargar datos vacunación
+            (Fetch)</button>
+    </p>
+    <div id="tablaRdo"></div>
+</body>
+
+</html>

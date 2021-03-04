@@ -1,7 +1,9 @@
-<app-filter *ngIf="allFilters.familia.length != 0" [allFiltersProp]='allFilters' (handleClick)='dataFilter($event)'>
-</app-filter>
-<!-- <button (click)='changeMe()'>HHHHHHHh</button>
-<p *ngIf="buttonSi">AHAHAHHAHAHAH</p> -->
-<!-- <app-control *ngIf="loading" (load)='loaded($event)'></app-control> -->
-<p *ngIf="loading" class="loadingMsg">Loading...</p>
-<app-generic-table *ngIf="!loading && showTable" [data]='arrayCiclos' [filters]='filterValues'></app-generic-table>
+<div class="container">
+    <app-filter *ngIf="allFilters.familia.length != 0" [allFiltersProp]='allFilters' (handleClick)='dataFilter($event)'>
+    </app-filter>
+    <!-- <button (click)='changeMe()'>HHHHHHHh</button>
+    <p *ngIf="buttonSi">AHAHAHHAHAHAH</p> -->
+    <!-- <app-control *ngIf="loading" (load)='loaded($event)'></app-control> -->
+    <h2 *ngIf="loading" class="loadingMsg">Loading...</h2>
+    <app-generic-table *ngIf="!loading && showTable" [data]='arrayCiclos' [filters]='filterValues'></app-generic-table>
+</div>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="armas.js" defer></script>
+    <style type="text/css">
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        img {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="root">
+        <button type="button" onclick="peticionXHR()">XMLHttpRequest</button>
+        <button type="button" onclick="peticionFetch()">Fetch</button>
+        <select id="tipoBando" onchange="crearTabla()">
+            <option value="1">Aliados</option>
+            <option value="2">Eje</option>
+            <option value="3">Todos</option>
+        </select>
+    </div>
+    <div id="rdoTabla"></div>
+</body>
+
+</html>
