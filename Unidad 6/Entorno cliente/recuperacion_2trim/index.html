@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocio del Real</title>
+    <script type="text/javascript" src="script.js" defer></script>
+    <style type="text/css">
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="xhrButton" type="button" onclick="loadJsonXHR()">Obtener y guardar datos de
+        films(XMLHttpRequest)</button>
+
+    <button id="xhrButton" type="button" onclick="loadJsonFetch()">Obtener y guardar datos de films (Fetch)</button>
+
+
+    <button id="xhrButton" type="button" onclick="loadPersonajesFetch()">Obtener y guardar personajes (Fetch)</button>
+
+    <div id="tablaPersonajes"></div>
+    <hr>
+    <div id="tablaDos"></div>
+</body>
+
+</html>
